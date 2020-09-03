@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI CALCULATOR IN ANGULARJS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>SI CALCULATOR</h1>
+    <div class="form" ng-app="myApp">
+        <div class="form-group" ng-controller="interestCalculator">
+
+            <div>
+                <label for="principal">Loan Amount:</label>
+                <input type="number" class="form-control" id="principal" ng-model="principal" />
+                <label for="rate">Annual Percentage Rate:</label>
+                <input type="number" class="form-control" id="rate" ng-model="rate" />
+                <label for="time">Length of Loan in Years:</label>
+                <input type="number" class="form-control" id="time" ng-model="time" />
+            </div>
+
+            <div>
+                <label>Result</label>
+                <p class="bg-danger">Total Interest Alone You Will Pay:
+                    <strong>{{interest() | currency:'&#8377;'}}</strong></p>
+                <p class="bg-success">Total Amount You Will Pay: <strong>{{total() | currency:'&#8377;'}}</strong></p>
+            </div>
+            <button ng-click="initValues()">Clear</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

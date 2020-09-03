@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "helvetica";
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #000;
+  color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+}
+
+.bg-success {
+  background: #28a745;
+}
+
+.bg-danger {
+  background: #696969;
+}
+
+p {
+  border-radius: 5px;
+  padding: 0.8em;
+  text-align: center;
+}
+
+input {
+  margin: 5px 0px 15px 0px;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  display: block;
+}
+
+button {
+  background: #000;
+  opacity: 0.7;
+  /* 28a745 */
+  color: #f2f2f2;
+  border: 0;
+  border-radius: 5px;
+  border: none;
+  padding: 0.4em 1em;
+  font-size: 1.2em;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: opacity 0.3s ease;
+}
+button:hover {
+  opacity: 1;
+}
+
+label {
+  font-weight: bold;
+}
+.form {
+  background: #333;
+  color: #f2f2f2;
+  border-radius: 5px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 2em;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2em;
+}
+
+@media (max-width: 600px) {
+  .form-group {
+    display: grid;
+    grid-template-columns: auto;
+    column-gap: 2em;
+  }
+
+  body {
+    padding: 0em 1em;
+  }
+}
