@@ -11,6 +11,14 @@ body {
   font-family: helvetica;
 }
 
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 3em;
+  overflow-wrap: break-word;
+}
+
 .form-input {
   margin-bottom: 10px;
 }
@@ -62,10 +70,6 @@ input {
 form {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 3em;
   padding: 16px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 5px 2px #ccc;
