@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
   padding: 0;
   background: #f2f2f2;
@@ -77,6 +79,17 @@ form {
 
 h3 {
   margin-top: 2em;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 1em;
+}
+pre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {

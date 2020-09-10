@@ -11,6 +11,7 @@ form.addEventListener("submit", (e) => {
   let username = form.username.value;
   let email = form.email.value;
 
+  if(validateemail(email)) {
   document.getElementById("date").innerHTML = "Date: " + d.toDateString();
 
   if (h >= 4 && h < 12)
@@ -20,7 +21,8 @@ form.addEventListener("submit", (e) => {
   else if (h > 17 && h < 21)
     greet.innerHTML = "Good Evening" + username;
   else greet.innerHTML = "Good night " + username;
-  validateemail(email);
+  }
+  // validateemail(email);
 });
 
 function validateemail(email) {
@@ -41,6 +43,7 @@ function validateemail(email) {
     );
     return false;
   }
+  return true;
 }
 
 resetBtn.addEventListener('click', () => {
