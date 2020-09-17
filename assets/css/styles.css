@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  font-family: helvetica;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: calc((100vh - 50vh) / 2);
+  overflow-wrap: break-word;
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+label {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  font-size: 1em;
+  padding: 10px 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 3px;
+}
+
+.age-err,
+.username-err {
+  color: red;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  border: none;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px 15px;
+  opacity: 0.8;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1em;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.btn.btn-success {
+  background: #155724;
+}
+.btn.btn-primary {
+  background: #004085;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px 2px #ccc;
+}
+
+h3 {
+  margin-top: 2em;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 1em;
+}
+pre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0 16px;
+  }
+}
