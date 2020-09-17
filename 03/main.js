@@ -8,7 +8,7 @@ form.addEventListener("submit", (e) => {
   let username = form.username.value;
   let mobile = form.mobile.value;
   if (validation(username, mobile)) {
-    greet.innerHTML = `Hello ${username} <br>! This is ypur mobile no.${mobile}`;
+    greet.innerHTML = `Hello ${username}! <br> This is ypur mobile no.${mobile}`;
   }
 });
 
