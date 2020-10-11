@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+
+<body ng-app="myCalc" ng-controller="calcCtrl">
+    <div class="container">
+        <h1 align="center">CALCULATOR</h1>
+        <div class="inputs">
+            <input type="number" name="result" class="calc-display-input" ng-model="result">
+            <hr>
+            <input type="number" name="a" string-to-number ng-model="first" ng-init="first='500'">
+            <input type="number" name="b" string-to-number ng-model="second" ng-init="second='100'">
+        </div>
+        <div class="buttons">
+            <button class="btn" ng-click="add_func()">+</button>
+            <button class="btn" ng-click="subt_func()">-</button>
+            <button class="btn" ng-click="multi_func()">*</button>
+            <button class="btn" ng-click="div_func()">/</button>
+        </div>
+        <button ng-click="clear()" class="btn clear">CLEAR</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
