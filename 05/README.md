@@ -6,10 +6,8 @@
 ## Updating Employee Details
 ![List of all Employees.png](https://raw.githubusercontent.com/sbrocks777/wt-assignments/master/05/screenshots/Updating%20Employee%20Details.png)
 
-
 ## Deleting Employee
 ![List of all Employees.png](https://raw.githubusercontent.com/sbrocks777/wt-assignments/master/05/screenshots/Deleting%20Employee.png)
-
 
 ## List After Deleting Employee
 ![List of all Employees.png](https://raw.githubusercontent.com/sbrocks777/wt-assignments/master/05/screenshots/List%20After%20Deleting%20Employee.png)
