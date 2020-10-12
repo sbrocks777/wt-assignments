@@ -6,3 +6,5 @@
 * [Assignment No.4](https://github.com/sbrocks777/wt-assignments/tree/master/04)
 * [Assignment No.5](https://github.com/sbrocks777/wt-assignments/tree/master/05)
 * [Assignment No.6](https://sbrocks777.github.io/wt-assignments/06)
+* [Assignment No.7](https://sbrocks777.github.io/wt-assignments/07)
+* [Assignment No.8](https://sbrocks777.github.io/wt-assignments/08)
