@@ -43,8 +43,8 @@
                 <td colspan="4">{{ total().tobm }} / {{ total().tofm }}</td>
                 </tr>
                 </tr>
-                <td colspan="5" align="center"><b>You have {{  total().result }}% and your grade is
-                        {{  total().grade }}</b></td>
+                <td colspan="5" align="center"><b>You have {{  total().result || 0 }}% and your grade is
+                        {{  total().grade || ':('}}</b></td>
                 </tr>
             </tbody>
         </table>
