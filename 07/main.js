@@ -12,10 +12,11 @@ app.controller("myController", function ($scope) {
     };
 
     if($scope.id !== null) {
-      console.log($scope.id)
-      $scope.items[$scope.id] = data;
+      $scope.items.splice($scope.id, 1, data);
+      $scope.id = null;
+    } else {
+      $scope.items.push(data);
     }
-    $scope.items.push(data);
     $("#exampleModal").modal("hide");
   };
 
@@ -33,9 +34,17 @@ app.controller("myController", function ($scope) {
 
   $scope.reset = function () {
     document.querySelector('form').reset();
-    // $scope.item = "";
-    // $scope.description = "";
-    // $scope.quantity = 0;
-    // $scope.price = 0;
+    $scope.item = '';
+    $scope.description = '';
+    $scope.quantity = 0;
+    $scope.price = 0;
   };
+
+  $scope.total = function() {
+    let total = 0;
+    angular.forEach($scope.items, function(item) {
+      total += item.quantity * item.price;
+    })
+    return total;
+  }
 });

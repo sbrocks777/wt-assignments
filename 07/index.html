@@ -28,17 +28,19 @@
                     <th scope='col'>Description</th>
                     <th scope='col'>Quantity</th>
                     <th scope='col'>Price</th>
+                    <th scope="col">Total</th>
                     <th scope='col'>Action</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
-            <tr ng-repeat="item in items">
+            <tr ng-repeat="item in items track by $index">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ item.item }}</td>
                 <td>{{ item.description }}</td>
                 <td>{{ item.quantity }}</td>
                 <td>{{ item.price }}</td>
+                <td>{{ item.price * item.quantity }}</td>
                 <td>
                     <svg width='1em' height='1em' viewBox='0 0 16 16' data-toggle="modal" data-target="#exampleModal"
                         class='bi bi-pencil-fill mx-2' role="button" fill='currentColor'
@@ -53,6 +55,9 @@
                     </svg>
                 </td>
             </tr>
+            <tr>
+                <td colspan="7" align="center"><b>Grand Total: {{total()}} /-</b></td>
+                </tr>
         </table>
 
         <!-- Model -->
