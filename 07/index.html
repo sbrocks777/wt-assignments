@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ GRADE CALCULATOR</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+    <div class="container shadow p-3 mb-5 bg-white rounded">
+        <div class="d-flex mt-5 justify-content-between align-items-center">
+            <h2 class="">Bill Generator</h2>
+            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"
+                data-whatever="Create new employee" ng-click="reset()"><strong>+</strong> Add Item</button>
+            <!-- <button class="btn btn-primary float-right d-inline">Add new employee</button> -->
+        </div>
+        <hr>
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope='col'>#</th>
+                    <th scope='col'>Item</th>
+                    <th scope='col'>Description</th>
+                    <th scope='col'>Quantity</th>
+                    <th scope='col'>Price</th>
+                    <th scope='col'>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tr ng-repeat="item in items">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ item.item }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <svg width='1em' height='1em' viewBox='0 0 16 16' data-toggle="modal" data-target="#exampleModal"
+                        class='bi bi-pencil-fill mx-2' role="button" fill='currentColor'
+                        xmlns='http://www.w3.org/2000/svg' ng-click="edit($index)">
+                        <path fill-rule='evenodd'
+                            d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z' />
+                    </svg>
+                    <svg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-trash-fill mx-2' role="button"
+                        fill='currentColor' xmlns='http://www.w3.org/2000/svg' ng-click="delete($index)">
+                        <path fill-rule='evenodd'
+                            d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z' />
+                    </svg>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Model -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="form" ng-submit="onSubmit()" novalidate>
+                            <div class="form-group">
+                                <label for="item" class="col-form-label">Item Name*</label>
+                                <input type="text" class="form-control" ng-model="item" name="item" id="item"
+                                    ng-required="true">
+                                <small ng-show="form.item.$touched && form.item.$error.required"
+                                    class="text-danger">This Field is Required</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-form-label">Item Description*</label>
+                                <textarea class="form-control" name="description" ng-model="description"
+                                    id="description" ng-required="true"></textarea>
+                                <small ng-show="form.description.$touched && form.description.$error.required"
+                                    class="text-danger">This Field is Required</small>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-6">
+                                    <label for="quantity" class="col-form-label">Item Qanitity*</label>
+                                    <input type="number" class="form-control" name="quantity" ng-model="quantity"
+                                        id="quantity" ng-required="true">
+                                    <small ng-show="form.quantity.$touched && form.quantity.$error.required"
+                                        class="text-danger">This Field is Required</small>
+                                </div>
+                                <div class="col-6">
+                                    <label for="price" class="col-form-label">Item Price*</label>
+                                    <input type="number" class="form-control" name="price" ng-model="price" id="price"
+                                        ng-required="true">
+                                    <small ng-show="form.price.$touched && form.price.$error.required"
+                                        class="text-danger">This Field is Required</small>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Submit</button>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
